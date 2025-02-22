@@ -25,6 +25,8 @@ A Telegram bot that automatically uploads images to Cloudflare R2 storage and re
 
 ```bash
 docker build -t telegram-r2-bot .
+```
+
 
 
 [![Build and Push Docker Image](https://github.com/korjavin/cfuploadtbot/actions/workflows/docker-build.yml/badge.svg)](https://github.com/korjavin/cfuploadtbot/actions/workflows/docker-build.yml)
