@@ -113,8 +113,11 @@ func main() {
 				continue
 			}
 
+			// Detect content type
+			contentType := http.DetectContentType(fileData)
+
 			// Upload to R2 using the buffer
-			contentType := resp.Header.Get("Content-Type")
+
 			_, err = s3Client.PutObject(context.TODO(), &s3.PutObjectInput{
 				Bucket:      &bucketName,
 				Key:         &fileName,
