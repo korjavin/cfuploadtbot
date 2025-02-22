@@ -17,6 +17,7 @@ A Telegram bot that automatically uploads images to Cloudflare R2 storage and re
 - `CF_ACCESS_KEY_ID`: Cloudflare R2 access key ID
 - `CF_ACCESS_KEY_SECRET`: Cloudflare R2 access key secret
 - `CF_BUCKET_NAME`: Name of your R2 bucket
+- `CF_CUSTOM_DOMAIN`: Your custom domain for R2 bucket (optional)
 
 ## Building and Running
 

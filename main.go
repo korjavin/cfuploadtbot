@@ -26,6 +26,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Invalid OWNER_ID")
 	}
+	customDomain := os.Getenv("CF_CUSTOM_DOMAIN")
 
 	// Cloudflare R2 credentials
 	accountId := os.Getenv("CF_ACCOUNT_ID")
@@ -130,7 +131,12 @@ func main() {
 			}
 
 			// Generate public URL
-			publicURL := fmt.Sprintf("https://%s.r2.cloudflarestorage.com/%s", accountId, fileName)
+			var publicURL string
+			if customDomain != "" {
+				publicURL = fmt.Sprintf("https://%s/%s", customDomain, fileName)
+			} else {
+				publicURL = fmt.Sprintf("https://%s.r2.cloudflarestorage.com/%s", accountId, fileName)
+			}
 
 			// Send response
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, publicURL)
